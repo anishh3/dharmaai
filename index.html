@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Synapse Automations | AI Automation with Cultural Pride</title>
+    <title>Dharma AI | Ethical AI Automation for Business</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -16,7 +16,6 @@
             --navy: #06038D;
             --white: #FFFFFF;
             --gold: #EFBF04;
-            --crimson: #9A031E;
             --cream: #F7F7F7;
             /* Utility Colors */
             --text-dark: #2c3e50;
@@ -70,7 +69,7 @@
             align-items: center;
             position: fixed;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(15px);
             z-index: 100;
             transition: box-shadow 0.3s;
@@ -79,14 +78,40 @@
         }
         
         .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--navy);
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
         }
         
-        .logo span {
-            color: var(--saffron);
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            color: var(--navy);
+            animation: spin 24s linear infinite;
+            transition: animation-duration 0.5s ease;
+            /* Slow, continuous rotation */
+        }
+        
+        .logo:hover .logo-icon {
+            animation-duration: 8s;
+            /* Speeds up rotation on hover */
+        }
+        
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1;
         }
         /* --- Buttons --- */
         
@@ -103,6 +128,25 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 153, 51, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+            z-index: -1;
+        }
+        
+        .cta-button:hover::before {
+            left: 100%;
         }
         
         .cta-button:hover {
@@ -141,6 +185,11 @@
             background: var(--saffron);
             margin: 25px auto 0;
             border-radius: 2px;
+            transition: width 0.5s ease;
+        }
+        
+        h2:hover::after {
+            width: 120px;
         }
         
         h3 {
@@ -224,6 +273,40 @@
             padding: 40px;
             box-shadow: 0 8px 40px var(--shadow-light);
             transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::after,
+        .why-us-item::after,
+        .use-case-card::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, var(--saffron) 0%, transparent 70%);
+            opacity: 0;
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease, opacity 0.6s ease;
+            z-index: 0;
+        }
+        
+        .feature-card:hover::after,
+        .why-us-item:hover::after,
+        .use-case-card:hover::after {
+            width: 300px;
+            height: 300px;
+            opacity: 0.1;
+        }
+        
+        .feature-card>*,
+        .why-us-item>*,
+        .use-case-card>* {
+            position: relative;
+            z-index: 1;
         }
         
         .feature-card:hover,
@@ -372,6 +455,43 @@
             color: var(--navy);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
         }
+        /* --- NEW: Mehndi Design Panels --- */
+        
+        .with-mehndi-borders::before,
+        .with-mehndi-borders::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path d="M50 0 C20 50, 80 70, 50 120 C20 170, 80 150, 50 200" fill="none" stroke="%23E0E0E0" stroke-width="2"/><circle cx="50" cy="60" r="5" fill="%23E0E0E0"/><circle cx="50" cy="140" r="5" fill="%23E0E0E0"/></svg>');
+            background-repeat: repeat-y;
+            background-size: 100px auto;
+            opacity: 0.6;
+            z-index: 1;
+            pointer-events: none;
+            animation: float 10s infinite alternate ease-in-out;
+        }
+        
+        .with-mehndi-borders::before {
+            left: 0;
+            background-position: right center;
+        }
+        
+        .with-mehndi-borders::after {
+            right: 0;
+            background-position: left center;
+            animation-delay: 2s;
+        }
+        
+        @keyframes float {
+            from {
+                transform: translateY(-10px);
+            }
+            to {
+                transform: translateY(10px);
+            }
+        }
         /* --- Footer --- */
         
         .footer {
@@ -410,6 +530,14 @@
             transform: translateY(0);
         }
         /* Responsive Design */
+        
+        @media (max-width: 992px) {
+            .with-mehndi-borders::before,
+            .with-mehndi-borders::after {
+                display: none;
+                /* Hide mehndi panels on smaller screens for a cleaner look */
+            }
+        }
         
         @media (max-width: 768px) {
             h1 {
@@ -451,16 +579,19 @@
 <body>
 
     <header class="header">
-        <a href="#" class="logo">Synapse<span>.</span></a>
+        <a href="#" class="logo">
+            <svg class="logo-icon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="5"/><circle cx="50" cy="50" r="10" fill="currentColor"/><g><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(15 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(30 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(45 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(60 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(75 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(90 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(105 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(120 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(135 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(150 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(165 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(180 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(195 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(210 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(225 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(240 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(255 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(270 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(285 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(300 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(315 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(330 50 50)"/><line x1="50" y1="50" x2="50" y2="12" stroke="currentColor" stroke-width="4" transform="rotate(345 50 50)"/></g></svg>
+            <span class="logo-text">Dharma AI</span>
+        </a>
         <nav>
             <a href="#cta" class="cta-button">Book a Consultation</a>
         </nav>
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero with-mehndi-borders">
             <div class="container">
-                <p class="tagline fade-in">Synapse Automations</p>
+                <p class="tagline fade-in">Dharma AI</p>
                 <h1 class="fade-in" style="transition-delay: 100ms;">Build Private AI Agents for Your Business</h1>
                 <p class="subheadline fade-in" style="transition-delay: 200ms;">Custom AI automation systems powered by secure MCP servers and private LLMs, tailored for a data-private India.</p>
                 <a href="#cta" class="cta-button fade-in" style="transition-delay: 300ms;">Start Your AI Journey</a>
@@ -493,9 +624,9 @@
             </div>
         </section>
 
-        <section id="why-us">
+        <section id="why-us" class="with-mehndi-borders">
             <div class="container">
-                <h2 class="fade-in">Why Synapse Automations?</h2>
+                <h2 class="fade-in">Why Dharma AI?</h2>
                 <div class="why-us-grid">
                     <div class="why-us-item fade-in" style="transition-delay: 100ms;">
                         <h3>Absolute Data Privacy</h3>
@@ -545,10 +676,10 @@
 
     <footer class="footer">
         <div class="footer-links">
-            <a href="mailto:contact@synapseautomations.com">contact@synapseautomations.com</a>
+            <a href="mailto:contact@dharmaai.com">contact@dharmaai.com</a>
             <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         </div>
-        <p>&copy; 2025 Synapse Automations. All Rights Reserved.</p>
+        <p>&copy; 2025 Dharma AI. All Rights Reserved.</p>
     </footer>
 
     <script>
